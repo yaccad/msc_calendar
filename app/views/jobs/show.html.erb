@@ -1,0 +1,19 @@
+
+
+	  <div class="container">
+
+	    <div class="row">
+	      <div class="span9">	
+		   <h1><%= @job.name %></h1>
+			<p class="info">Published on <%= @job.published_on.strftime("%B %e, %Y") %></p>
+			<%= simple_format @job.description %>
+			<p>
+			  <%= link_to "Edit Job", edit_job_path(@job) %> |
+			  <%= link_to "Back to Jobs", jobs_path %>
+			</p></div>
+	      <div class="span3">
+	        <h2>Tasks</h2>
+	        <p>List Tasks
+	      </div> 
+	    </div>
+	  </div>
