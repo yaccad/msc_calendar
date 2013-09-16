@@ -9,18 +9,26 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120810222509) do
+ActiveRecord::Schema.define(version: 20130916223611) do
 
-  create_table "jobs", :force => true do |t|
+  create_table "clients", force: true do |t|
+    t.string   "clientName"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "clients", ["id", "created_at"], name: "index_clients_on_id_and_created_at"
+
+  create_table "jobs", force: true do |t|
     t.string   "name"
     t.date     "published_on"
-    t.date     "due_date" 
+    t.date     "due_date"
     t.text     "description"
-    t.integer      "quantity"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "quantity"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
